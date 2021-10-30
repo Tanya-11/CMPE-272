@@ -25,14 +25,18 @@ if(isset($_POST['submitSearch'])
             $query = "select * from user where  home_phone = '$search'";
         }
      
-        $result = mysqli_query($con, $query);
+        $result = $con->query($query);
         if($result){
             if ($result && mysqli_num_rows($result) > 0) {
-                $user_data = mysqli_fetch_assoc($result);
-              //      var_dump($user_data);
-                foreach (  $user_data  as $key => $value)
-                echo $key.'='.$value.'<br />';
+                $row = $result->fetch_assoc();
+                    $field1name = $row["first_name"];
+                    $field2name = $row["last_name"];
+                    $field3name = $row["address"];
+                    $field4name = $row["home_phone"];
+                    $field5name = $row["cell_phone"];
+                    $field6name = $row["email"];
 
+    
             }
             else{
                 echo "No Results found!";
@@ -80,30 +84,43 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" &&  isset($_POST['submit'])) {
 ?>
 <?php include('components/head.inc.php') ?>
 
-<form action="users.php" method="POST">
+<form action="users.php" method="POST" style="margin:10px;">
 <label for="search"></label>
 		<div class="col-sm-6" style="display:inline;">
         <input id="search" type="text" name="search" placeholder="Type here Name, Email or Home Phone">
 		</div>
         <div style="display:inline;">
-<input id="submit" type="submit" value="Search" name="submitSearch">
+        <button type="submit" class="btn btn-primary"  style="height:2rem;" name="submitSearch">Search</button><br><br>
 </div>
 </form>
 
 
 <form method="post">
-		<div class="card mx-auto" style="width: 40rem;">
+		<div class="card mx-auto" style="width: 45rem;">
 		<div class="card-body">
 		<div class="form-group row">
 		<label for="first_name" class="col-sm-4">First Name</label>
 		<div class="col-sm-6">
-			<input id="text" type="text" name="first_name">
+			<input id="text" type="text" name="first_name"
+            value="
+            <?php if(isset( $field1name))
+            echo   $field1name;
+            ?>
+            "
+            >
 		</div>
 		</div><br><br>
         <div class="form-group row">
 		<label for="last_name" class="col-sm-4">Last Name</label>
 		<div  class="col-sm-6">
-			<input id="text" type="text" name="last_name"><br><br>
+			<input id="text" type="text" name="last_name"
+            value="
+            <?php if(isset( $field2name))
+            echo   $field2name;
+            ?>
+            "
+            >
+            <br><br>
 		</div>
 		</div>
         <br/><br/>
@@ -116,28 +133,53 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" &&  isset($_POST['submit'])) {
         <div class="form-group row">
 		<label for="email" class="col-sm-4">Email</label>
 		<div  class="col-sm-6">
-			<input id="text" type="text" name="email"><br><br>
+			<input id="text" type="text" name="email" 
+            value="
+            <?php if(isset( $field6name))
+            echo   $field6name;
+            ?>
+            "
+            ><br><br>
 		</div>
 		</div>
         <br/><br/>
         <div class="form-group row">
 		<label for="address" class="col-sm-4">Home Address</label>
 		<div  class="col-sm-6">
-			<input id="text" type="text" name="address"><br><br>
+			<input id="text" type="text" name="address"
+            value="
+            <?php if(isset( $field3name))
+            echo   $field3name;
+            ?>
+            "
+            >
+            <br><br>
 		</div>
 		</div>
         <br/><br/>
         <div class="form-group row">
 		<label for="home_phone" class="col-sm-4">Home Phone</label>
 		<div  class="col-sm-6">
-			<input id="text" type="text" name="home_phone"><br><br>
+			<input id="text" type="text" name="home_phone"
+            value="
+            <?php if(isset( $field4name))
+            echo   $field4name;
+            ?>
+            "
+            ><br><br>
 		</div>
 		</div>
         <br/><br/>
         <div class="form-group row">
 		<label for="cell_phone" class="col-sm-4">Cell Phone</label>
 		<div  class="col-sm-6">
-			<input id="text" type="text" name="cell_phone"><br><br>
+			<input id="text" type="text" name="cell_phone"
+            value="
+            <?php if(isset( $field5name))
+            echo   $field5name;
+            ?>
+            "
+            ><br><br>
 		</div>
 		</div>
         <br/><br/>
