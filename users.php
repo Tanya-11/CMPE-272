@@ -82,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" &&  isset($_POST['submit'])) {
 }
 
 ?>
-<?php include('components/head.inc.php') ?>
 
 <form action="users.php" method="POST" style="margin:10px;">
 <label for="search"></label>
