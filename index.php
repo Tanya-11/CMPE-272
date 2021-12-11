@@ -9,9 +9,9 @@ $user_data = check_login($con);
 ?>
 
 <?php include('components/head.inc.php')?>
-	<?php include 'components/navbar.php' ?>
-	<h1><?php  echo "Hi". " ". $user_data['first_name']; ?></h1>
-	<p>Welcome to the online Apparel Store!</p>
+<?php include 'components/navbar.php' ?>
+<h1><?php  echo "Hi". " ". $user_data['firstName']; ?></h1>
+<p>Welcome to the online Apparel Store!</p>
 
 </body>
 

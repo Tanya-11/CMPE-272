@@ -1,13 +1,12 @@
 <?php
 
-$dbhost = "us-cdbr-east-04.cleardb.com";
-$dbuser = "b22944c3c9b6a3";
-$dbpass = "91409d10";
-$dbname = "heroku_bc909ed51dc1c26";
-$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
-if(!$con)
+$dbhost = "cmpe-272.ci6br9aurtlu.us-east-2.rds.amazonaws.com";
+$dbuser = "admin";
+$dbpass = "cmpe272sjsu";
+$dbname = "marketplace";
+
+if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
 
 	die("failed to connect!");
 }
-

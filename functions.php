@@ -7,7 +7,7 @@ function check_login($con)
 	{
 
 		$id = $_SESSION['user_id'];
-		$query = "select * from user where user_id = '$id' limit 1";
+		$query = "select * from user where id = '$id' limit 1";
 
 		$result = mysqli_query($con,$query);
 		if($result && mysqli_num_rows($result) > 0)
@@ -43,3 +43,20 @@ function random_num($length)
 
 	return $text;
 }
+
+
+// function setReview($con,$rating, $review, $productId){
+
+// 	  $reviewer = $_SESSION['user_name'];
+// 	 if (!empty($rating) && !empty($review) && is_numeric($rating)) {
+	
+// 	  $query = "Update products SET  rating='$rating',review='$review', reviewer='$reviewer' where product_Id='$productId'";
+// 	  mysqli_query($con, $query);
+// 		  echo 'Record Added Successfully!';   
+// 		  header("Location: product".$productId.".php");
+// 	  die;	
+// 		} 
+// 		else {
+// 			echo "wrong username or password!";
+// 		}
+// 	}

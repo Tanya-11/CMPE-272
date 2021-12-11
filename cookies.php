@@ -2,22 +2,22 @@
 include 'connection.php';
 include 'functions.php';
 define("RECENT_PRODUCT_COUNT", 5);
-define("PRODUCT_KEY", "productsVisited");
-function addLastVisited($productName, $productLink)
+define("PRODUCT_KEY", "productsVisitedtanya");
+function addLastVisited($id)
 {
 
     $item = (object)[
-        'product_name' => $productName,
-        'product_link' =>  $productLink
+        // 'product_name' => $productName,
+        'product_id' =>  $id
     ];
      
    // var_dump($item);
     $productArray = array($item);
     foreach (getLastVisitedAll() as $index => $value) {
-    //     echo 'Testing';
+        //  echo $id;
     //    echo $index;
-    //   echo ($value->{'product_name'});
-        if ($value->{'product_link'} !== $productLink) {
+ // echo ($value->{'product_id'});
+        if ($value->{'product_id'} !== $id) {
 
             array_push($productArray, $value);
 

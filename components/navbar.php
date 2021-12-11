@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.php">Cloth Shop</a>
+  <a class="navbar-brand" href="index.php">Apparel Store</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>

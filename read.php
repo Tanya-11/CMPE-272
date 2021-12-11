@@ -27,4 +27,10 @@ function fetchOthersUsers($site, $SiteOwner){
 		curl_close($ch);
 	}	
 }
-
+function fetchProductById($id){	
+    include("connection.php");
+	$stmt = $con->prepare("select * from product where id='$id'");				
+	$stmt->execute();			
+	$result = $stmt->get_result();		
+	return $result;	
+}
