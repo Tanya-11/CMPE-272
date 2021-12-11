@@ -24,9 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			if ($result && mysqli_num_rows($result) > 0) {
 				
 				$user_data = mysqli_fetch_assoc($result);
-				//var_dump($user_data);
-				echo $user_data['password'];
-				echo $password;
 				if ($user_data['password'] === $password) {
 					echo "sdfsone";
 					$_SESSION['user_id'] = $user_data['id'];
@@ -37,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			}
 		}
 
-		//echo "wrong username or password!";
+		echo "wrong username or password!";
 	} 
 	else {
 		echo "wrong username or password!";
